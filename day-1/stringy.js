@@ -16,7 +16,7 @@ function length(string) {
     // YOUR CODE BELOW HERE //
     
     return string.length;
-
+    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -25,9 +25,8 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+    // use the .toLowerCase() method to return the string in lowercase
+    return string.toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
 
@@ -36,9 +35,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+    // use the .toUpperCase() method to return the string in uppercase
+    return string.toUpperCase();
     // YOUR CODE ABOVE HERE //
 }
 
@@ -57,10 +55,12 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+   // initiate a variable lowerCaseString to enfore a string to all lowercase. 
+    const lowerCaseString = string.toLowerCase();
+   // use the .replace() method to replace the space(s) with a dash using a global flag and regex. i.e. / /g
+   const dashCaseString = lowerCaseString.replace(/ /g, '-');
+   return dashCaseString;
+// YOUR CODE ABOVE HERE //
 }
 
 /**
@@ -77,11 +77,15 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-    
-
+    // Convert both the string and the char to lowercase to make the comparison case-insensitive
+    const lowerCaseString = string.toLowerCase();
+    const lowerCaseChar = char.toLowerCase();
+  
+    // Use the startsWith() method to check if the lowerCaseString begins with lowerCaseChar
+    return lowerCaseString.startsWith(lowerCaseChar);
+    }
     // YOUR CODE ABOVE HERE //
-}
+
 
 /**
  * Given an input String and a single character, return true if the String
@@ -97,9 +101,12 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+      // Convert both the string and the char to the same case (lowercase in this example)
+  const normalizedString = string.toLowerCase();
+  const normalizedCharacter = char.toLowerCase();
 
-
-
+  // Use the endsWith() method to check if the normalized string ends with the normalized character
+  return normalizedString.endsWith(normalizedCharacter);
     // YOUR CODE ABOVE HERE //
 }
 
@@ -110,9 +117,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    // return the two Strings concatenated into one.
+return stringOne + stringTwo;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -128,9 +134,8 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
-
-
+    var args = [...arguments];
+    return args.join('');
     // YOUR CODE ABOVE HERE //
 }
 
@@ -145,9 +150,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    let result;
+if (stringOne.length >= stringTwo.length) {
+    result = stringOne;
+} else {
+    result = stringTwo;
+}
+return result;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -160,9 +169,14 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    const comparisonResult = stringOne.localeCompare(stringTwo);
+    if (comparisonResult < 0) {
+      return 1; // stringOne comes before stringTwo alphabetically
+    } else if (comparisonResult > 0) {
+      return -1; // stringTwo comes before stringOne alphabetically
+    } else {
+      return 0; // stringOne and stringTwo are equal
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -176,11 +190,15 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
-
-    // YOUR CODE ABOVE HERE //
+    const comparisonResult = stringOne.localeCompare(stringTwo);
+    if (comparisonResult < 0) {
+      return -1; // stringOne is lower in alphabetical order than stringTwo
+    } else if (comparisonResult > 0) {
+      return 1; // stringTwo is lower in alphabetical order than stringOne
+    } else {
+      return 0; // strings are equal
+    }
+     // YOUR CODE ABOVE HERE //
 }
 
 

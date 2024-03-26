@@ -20,11 +20,16 @@
  */
 
 function reverseString(input) {
-    // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+  // YOUR CODE GOES BELOW HERE //
+    // a. Create something to collect the output you'll return.
+  let reversedString = ''; 
+    // b. Loop from the end of the string to the beginning.
+    for (let i = input.length - 1; i >= 0; i--) {
+      // c. Access individual characters of the string.
+      // d. Concatenate strings using the + operator.
+      reversedString += input[i];
+    }
+    return reversedString;
     // YOUR CODE GOES ABOVE HERE //
 }
 
