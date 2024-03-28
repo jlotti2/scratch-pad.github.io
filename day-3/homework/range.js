@@ -23,10 +23,23 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+  // Array to collect the output
+  let output = [];
+
+  // Check if the range should be ascending or descending
+  if (start <= end) {
+    // Loop for ascending order
+    for (let i = start; i <= end; i++) {
+      output.push(i); // Add the current number to the output array
+    }
+  } else {
+    // Loop for descending order
+    for (let i = start; i >= end; i--) {
+      output.push(i); // Add the current number to the output array
+    }
+  }
+
+  return output;
     // YOUR CODE GOES ABOVE HERE //
 }
 

@@ -52,10 +52,18 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+  // Check if the value is an Array
+  if (Array.isArray(value)) {
+    return true;
+  }
+  // Check if the value is an Object (and not null)
+  else if (typeof value === 'object' &&
+                  value !== null &&
+                 !(value instanceof Date)) {
+    return true;
+  }
+  // If neither, return false
+  return false;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -80,10 +88,13 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    if (typeof value !== "object") {
+      return typeof value;
+    }
+  // Using Object.prototype.toString for more specific types
+return Object.prototype.toString.call(value)
+.replace(/^\[object (.+)\]$/, '$1')
+.toLowerCase(); 
     // YOUR CODE ABOVE HERE //
 }
 

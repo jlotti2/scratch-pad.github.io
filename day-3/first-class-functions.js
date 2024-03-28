@@ -13,11 +13,12 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    // return a function with a given value
+    return function(value) {
+        // return whether a given value is greater than the base
+        return value > base;
+    }
+  // YOUR CODE ABOVE HERE //
 }
 
 /** 
@@ -27,10 +28,11 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // return a function with a given value
+    return function(value) {
+        // return whether a given value is less than the base
+        return value < base;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -41,10 +43,15 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // Ensure the startsWith character is in lowercase
+    const lowerCaseChar = startsWith.toLowerCase();
+    // Return a new function that takes a string to test as its parameter
+    return function(stringToTest) {
+        // Ensure the string to test is also in lowercase
+        const lowerCaseString = stringToTest.toLowerCase();
+        // Use the startsWith() method to check if the string starts with the specified character
+       return lowerCaseString.startsWith(lowerCaseChar);
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -55,10 +62,15 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+        // Ensure the endsWith character is in lowercase
+        const lowerCaseChar = endsWith.toLowerCase();
+        // Return a new function that takes a string to test as its parameter
+        return function(stringToTest) {
+            // Ensure the string to test is also in lowercase
+            const lowerCaseString = stringToTest.toLowerCase();
+            // Use the endsWith() method to check if the string ends with the specified character
+           return lowerCaseString.endsWith(lowerCaseChar);
+        }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -71,11 +83,24 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+      // Initialize an empty array to hold the modified strings
+  let modifiedStrings = [];
+
+  // Use a traditional for loop to iterate over each string
+  for (let i = 0; i < strings.length; i++) {
+    // Call the modify function on each string and add the result to the new array
+    modifiedStrings.push(modify(strings[i]));
+  }
+
+  // Return the new array containing the modified strings
+  return modifiedStrings;
+}
+
+// Define the modify function that converts a string to uppercase
+function toUpperCase(string) {
+  return string.toUpperCase();
     
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+  // YOUR CODE ABOVE HERE //
 }
 
 /** 
@@ -89,7 +114,20 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+        // Loop through all strings in the array
+        for (let i = 0; i < strings.length; i++) {
+            // If the current string does not pass the test, return false
+            if (!test(strings[i])) {
+                return false;
+            }
+        }
+        // If all strings pass the test, return true
+        return true;
+    }
     
+    // Test function to check if a string starts with 'C'
+    function startsWithC(string) {
+        return string.startsWith('C');
     
     
     
